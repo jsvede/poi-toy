@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         id="application"
+         point="org.eclipse.core.runtime.applications">
+      <application>
+         <run
+               class="com.loquatic.xls.gui.Application">
+         </run>
+      </application>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectives">
+      <perspective
+            name="POI Excel Analysis Perspective"
+            class="com.loquatic.xls.gui.Perspective"
+            id="com.loquatic.xls.gui.perspective">
+      </perspective>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            defaultHandler="com.loquatic.xls.gui.commands.OpenFileHandler"
+            id="com.loquatic.xls.gui.command.openFile"
+            name="Open File">
+      </command>
+      <command
+            defaultHandler="com.loquatic.xls.gui.commands.OpenSheetEditorHandler"
+            id="com.loquatic.xls.gui.command.openSheetEditor"
+            name="Open Sheet Editor">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="menu:org.eclipse.ui.main.menu">
+         <menu
+               id="fileMenu"
+               label="File">
+            <command
+                  commandId="com.loquatic.xls.gui.command.openFile"
+                  label="Open File"
+                  style="push">
+            </command>
+         </menu>
+      </menuContribution>
+   </extension>
+   <extension
+         point="org.eclipse.ui.views">
+      <view
+            class="com.loquatic.xls.gui.views.SheetNameView"
+            id="com.loquatic.xls.gui.views.sheetNameView"
+            name="Sheet Names"
+            restorable="true">
+      </view>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectiveExtensions">
+      <perspectiveExtension
+            targetID="com.loquatic.xls.gui.perspective">
+         <view
+               id="com.loquatic.xls.gui.views.sheetNameView"
+               minimized="false"
+               ratio="0.75f"
+               relationship="right"
+               relative="editorss">
+         </view>
+      </perspectiveExtension>
+   </extension>
+   <extension
+         point="org.eclipse.ui.editors">
+      <editor
+            class="com.loquatic.xls.gui.editors.SheetEditor"
+            default="false"
+            id="com.loquatic.xls.gui.editors.sheetEditor"
+            name="Sheet Editor">
+      </editor>
+   </extension>
+
+</plugin>

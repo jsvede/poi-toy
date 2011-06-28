@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Excel POI Analyzer
+Bundle-SymbolicName: com.loquatic.xls.gui; singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: com.loquatic.xls.gui.Activator
+Bundle-Vendor: Loquatic Software, LLC
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ com.loquatic.xls.util;bundle-version="1.0.0",
+ org.eclipse.nebula.widgets.grid;bundle-version="1.0.0",
+ org.apache.poi;bundle-version="3.8.3"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ActivationPolicy: lazy
