@@ -1,5 +1,7 @@
 package com.loquatic.xls.util;
 
+import static org.junit.Assert.*;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -25,11 +27,19 @@ public class WorkbookUtilTests {
 	public void testColumnHeaders() {
 		
 		String[] headers = util.getColumnHeaders( 104 ) ;
-		int x = 0 ;
-		for( String s : headers ) {
-			System.out.println( "header[" + x + "] = " + s ) ;
-			x++ ;
-		}
+
+		// test a couple of random entries
+		assertEquals( headers[103], "CZ" ) ;
+		assertEquals( headers[39], "AN" ) ;
 		
+		// now test that the first 52 entries start with
+		for( int x=0; x<51; x++ ) { 
+			assert( headers[x].startsWith("A") ) ; 
+ 		}
+		
+		// the next 26 should start with B
+		for( int x=0; x<26; x++ ) {
+			assert( headers[x+51].startsWith("B") ) ;
+		}
 	}
 }
