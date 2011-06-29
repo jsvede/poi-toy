@@ -31,6 +31,11 @@
             id="com.loquatic.xls.gui.command.openSheetEditor"
             name="Open Sheet Editor">
       </command>
+      <command
+            defaultHandler="com.loquatic.xls.gui.commands.OpenAddUdfWizard"
+            id="com.loquatic.xls.gui.command.openAddUdfWizard"
+            name="Open Add User Defined Function Wizard">
+      </command>
    </extension>
    <extension
          point="org.eclipse.ui.menus">
@@ -43,6 +48,17 @@
             <command
                   commandId="com.loquatic.xls.gui.command.openFile"
                   label="Open File"
+                  mnemonic="&amp;O"
+                  style="push">
+            </command>
+         </menu>
+         <menu
+               id="formulaMenu"
+               label="Formula">
+            <command
+                  commandId="com.loquatic.xls.gui.command.openAddUdfWizard"
+                  label="Add User Defined Function"
+                  mnemonic="&amp;A"
                   style="push">
             </command>
          </menu>
