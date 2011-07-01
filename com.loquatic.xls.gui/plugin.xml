@@ -60,6 +60,15 @@
                   label="Add User Defined Function"
                   mnemonic="&amp;A"
                   style="push">
+               <visibleWhen
+                     checkEnabled="true">
+                  <with
+                        variable="activePart">
+                     <instanceof
+                           value="com.loquatic.xls.gui.editors.SheetEditor">
+                     </instanceof>
+                  </with>
+               </visibleWhen>
             </command>
          </menu>
       </menuContribution>
