@@ -18,6 +18,10 @@ public class SelectJarFileWizardPage extends WizardPage {
 	private Text selectFileNameTxt ;
 	private Combo choosenFilesCbo ;
 	
+	
+	public SelectJarFileWizardPage() {
+		this( Messages.SelectJarFileWizardPage_Title ) ;
+	}
 	public SelectJarFileWizardPage(String pageName) {
 		super(pageName);
 		setTitle( Messages.SelectJarFileWizardPage_Title ) ;
@@ -35,7 +39,8 @@ public class SelectJarFileWizardPage extends WizardPage {
 		FormData formData = new FormData() ;
 		formData.top = new FormAttachment( 0, 10 ) ;
 		formData.left = new FormAttachment( 0, 10 ) ;
-	
+		formData.width = 150 ;
+		
 		Label selectFileLbl = new Label( composite, SWT.NONE ) ;
 		selectFileLbl.setText( Messages.SelectJarFileWizardPage_Label_Select_File ) ;
 		selectFileLbl.setLayoutData( formData ) ;
@@ -45,6 +50,8 @@ public class SelectJarFileWizardPage extends WizardPage {
 		formData = new FormData() ;
 		formData.top = new FormAttachment( 0, 10 ) ;
 		formData.left = new FormAttachment( selectFileLbl, 10 ) ;
+		formData.width = 250 ;
+		
 		selectFileNameTxt.setLayoutData( formData ) ;
 	
 		Button chooseFileBtn = new Button( composite, SWT.PUSH ) ;
