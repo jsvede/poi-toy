@@ -8,6 +8,10 @@ public class Messages extends NLS {
 	public static String SelectJarFileWizardPage_Description ;
 	public static String SelectJarFileWizardPage_Label_Select_File ;
 	public static String SelectJarFileWizardPage_Button_Select_File_Label ;
+	public static String SelectJarFileWizardPage_InvalidFile_Message ; 
+	public static String SelectJarFileWizardPage_CannotReadFile_Message ;
+	
+	
 	static {
 		// initialize resource bundle
 		NLS.initializeMessages(BUNDLE_NAME, Messages.class);
