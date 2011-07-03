@@ -1,0 +1,8 @@
+POI Toy
+
+POI Toy is a tool used to analyze Excel spreadsheets.  Its purpose is to 
+analyze .xls and .xlsx files for compatibility with Excel.  It is 
+designed to allow programmers a quick way to determine if a spreadsheet
+can be read by POI and whether or not the results are accurate.
+
+POI Toy is distributed under the BSD License.
