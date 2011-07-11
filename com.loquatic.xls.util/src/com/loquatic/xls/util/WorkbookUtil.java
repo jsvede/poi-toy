@@ -66,6 +66,8 @@ public class WorkbookUtil {
 		try {
 			FileInputStream fis = new FileInputStream(inputFileName);
 			workbook = WorkbookFactory.create(fis);
+			// search workbook for hidden sheets with class bytes
+			// and function aliases here!
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
