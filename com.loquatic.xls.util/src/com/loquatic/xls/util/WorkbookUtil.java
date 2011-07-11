@@ -47,6 +47,15 @@ import org.apache.poi.ss.util.CellReference;
 import org.apache.poi.xssf.usermodel.XSSFFormulaEvaluator;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
+/**
+ * This class provides the main POI support.  For this application this
+ * class will deal with POI directly and try, as much as possible, to
+ * encapsulate all of POI to minimize extraneous dependencies in plug-ins
+ * that depend on this class.
+ * 
+ * @author jsvede
+ *
+ */
 public class WorkbookUtil {
 	
 	private static final String[] LETTERS = { "A","B", "C", "D", "E", "F", "G", "H",
