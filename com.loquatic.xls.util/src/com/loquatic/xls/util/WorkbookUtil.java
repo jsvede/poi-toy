@@ -262,29 +262,29 @@ public class WorkbookUtil {
 			if (cell.getCellType() == Cell.CELL_TYPE_FORMULA) {
 				String cellFormula = cell.getCellFormula();
 				String[] childCells = parseCellFormula(cellFormula);
-				// System.out.println( "\t\tkids: " + childCells ) ;
+				//System.out.println( "\t\tkids: " + childCells ) ;
 				for (String kidCellId : childCells) {
 					aCell.addChild(buildCellTree(sheetName, kidCellId, aCell));
-					// recursionCount++ ;
-					// System.out.println( "recursionCount: " + recursionCount )
-					// ;
+					 recursionCount++ ;
+//					 System.out.println( "recursionCount: " + recursionCount ) ;
 				}
 			}
 		} catch (NullPointerException e) {
-			// System.out.println( "PUKE: " + sheetName + "!" + cellId + ": " +
-			// e.getMessage() ) ;
+//			 System.out.println( "PUKE: " + sheetName + "!" + cellId + ": " +
+//			 e.getMessage() ) ;
 		} catch (IllegalArgumentException e) {
-			// System.out.println( "PUKE: " + sheetName + "!" + cellId + ": " +
-			// e.getMessage() ) ;
-			// this happens when we get a reference that isn't cell, so ignore
-			// it.
-			// e.printStackTrace();
+//			 System.out.println( "PUKE: " + sheetName + "!" + cellId + ": " +
+//			 e.getMessage() ) ;
+//			 this happens when we get a reference that isn't cell, so ignore
+//			 it.
+//			 e.printStackTrace();
 		}
 
 		return aCell;
 	}
 
 	public String[] parseCellFormula(String cellFormula) {
+//		System.out.println( "formula: " + cellFormula ) ;
 		LinkedHashSet<String> token = new LinkedHashSet<String>();
 		Pattern pattern = Pattern.compile("\\b[\\$?[A-Z]]*[0-9][0-9][0-9]?\\b");
 		Matcher matcher = pattern.matcher(cellFormula);
@@ -310,14 +310,16 @@ public class WorkbookUtil {
 		LinkedList<CellInfo> cellInfos = new LinkedList<CellInfo>();
 		for (int x = 0; x < sheet.getLastRowNum(); x++) {
 			Row row = sheet.getRow(x);
-			for (int y = 0; y < row.getLastCellNum(); y++) {
-				Cell cell = row.getCell(y);
-				if (cell.getCellType() == Cell.CELL_TYPE_FORMULA) {
-					CellInfo cellInfo = buildCellTree(sheetName,
-							(cell.getColumnIndex() + "" + cell.getRowIndex()),
-							null);
-					cellInfos.add(cellInfo);
-				}
+			if( row != null ) {
+			    for (int y = 0; y < row.getLastCellNum(); y++) {
+			    	Cell cell = row.getCell(y);
+			    	if (cell != null && cell.getCellType() == Cell.CELL_TYPE_FORMULA) {
+			    		CellInfo cellInfo = buildCellTree(sheetName,
+			    				(LETTERS[cell.getColumnIndex()-1] + "" + cell.getRowIndex()),
+			    				null);
+			    		cellInfos.add(cellInfo);
+			    	}
+			    }
 			}
 		}
 
